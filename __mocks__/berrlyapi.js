@@ -1,7 +1,7 @@
 const berrlyapi = jest.createMockFromModule('../berrlyapi');
 
 function getEvents () {
-    console.log("rows:" + berrlyapi.calls["getEvents"].length);
+    berrlyapi.calls["getEvents"].push([]);
     return berrlyapi.returns["getEvents"][berrlyapi.calls["getEvents"].length - 1];
 }
 

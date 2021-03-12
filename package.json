@@ -2,15 +2,16 @@
   "name": "berrly_parser",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "berrly_parser.js",
   "scripts": {
     "test": "jest --ci",
-    "start": "node main.js"
+    "start": "node berrly_parser.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "base-64": "^1.0.0",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {

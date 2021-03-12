@@ -1,5 +1,6 @@
 const config = require('./config.json');
 const fetch = require('node-fetch');
+const utils = require('./utils.js');
 
 function getEvents() {
     return new Promise(function (resolve, reject) {
@@ -16,6 +17,19 @@ function getEvents() {
     });
 }
 
+function getEventMembers(event) {
+    return new Promise(function (resolve, reject) {
+        utils.download(event.id_event)
+        .then(function (resp){
+            resolve(resp);
+        })
+        .catch(function (error) {
+            reject(error);
+        });
+    })
+}
+
 module.exports = {
-    getEvents: getEvents
+    getEvents: getEvents,
+    getEventMembers: getEventMembers
 }
