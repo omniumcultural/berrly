@@ -21,7 +21,7 @@ function getEventMembers(event) {
     return new Promise(function (resolve, reject) {
         utils.download(event.id_event)
         .then(function (resp){
-            resolve(resp);
+            
         })
         .catch(function (error) {
             reject(error);
