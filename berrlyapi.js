@@ -26,11 +26,9 @@ function getEventMembers(event) {
             const converted = tabletojson.convert(table);
             var result = [];
             for (var i = 0; i < converted[0].length; i++) {
-                if (converted[0][i]['Nom complet']) {
-                    result.push(converted[0][i]);
-                }
-                resolve(result);
+                result.push(converted[0][i]);
             }
+            resolve(result);
         })
         .catch(function (error) {
             reject(error);

@@ -1,3 +1,8 @@
 {
     "token": "YavTMutWYIIZz8qkFW0A1iTGWJBdxQpg",
-    "_token": "CMrzIeNtF00BSmHbxexUQC2CS8TPFHaaymAZCQNg"}
+    "_token": "CMrzIeNtF00BSmHbxexUQC2CS8TPFHaaymAZCQNg",
+    "signup": {
+        "title": "https://pentagon_staging.omnium.cat/signupform/submit",
+        "id": "900057"
+    }
+}
