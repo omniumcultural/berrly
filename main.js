@@ -1,15 +1,17 @@
 const api = require("./berrlyapi");
-const ocsignupClass = require("ocsignupjs");
+const ocsignup = require("./ocsignup");
 const config = require("./config.json");
+const colours = require("./colours");
 
 function main () {
     api.getEvents()
-    .then(function(events) {
-        for (var i = 0; i < 1; i++) {
-            api.getEventMembers(events[i]).then((body) => console.log(body)).catch((error)=> console.error(error))
-            .then(function(members){
-                var ocsignup = new ocsignupClass.Ocsignup(config.signup_url);
+    .then(async function(events) {
+        for (var i = 0; i < events.length; i++) {
+            console.log(colours.colours.FgYellow + "Getting members from " + colours.colours.FgWhite + events[i].name + colours.colours.FgYellow + " event." + colours.colours.Reset);
+            await api.getEventMembers(events[i])
+            .then(async function(members) {
                 for (var i = 0; i < members.length; i++) {
+                    console.log(colours.colours.FgGreen + "Submitting involved " + colours.colours.FgWhite + members[i]["Nom complet"] + colours.colours.FgGreen + "." + colours.colours.Reset);
                     var form = {
                         email: members[i]["E-mail 1"],
                         name: members[i]["Nom complet"],
@@ -18,8 +20,8 @@ function main () {
                         session: members[i]["Tiquet"],
                         assistance: members[i]["Estat"]
                     }
+                    await ocsignup.signUp(config.signup.id, config.signup.title, form);
                 }
-                ocsignup.SignUp(config.signup.id, config.signup.title, form);
             });
         }
     });

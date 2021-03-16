@@ -1,8 +1,9 @@
 {
     "token": "YavTMutWYIIZz8qkFW0A1iTGWJBdxQpg",
-    "_token": "CMrzIeNtF00BSmHbxexUQC2CS8TPFHaaymAZCQNg",
+    "_token": "R2E5SlljPYuYBYV8Nl922EYMOGrgXBQqBk0pJzfy",
     "signup": {
-        "title": "https://pentagon_staging.omnium.cat/signupform/submit",
-        "id": "900057"
+        "title": "participació VOC",
+        "url": "https://q2dxbwmrl4.execute-api.eu-west-1.amazonaws.com/prod",
+        "id": "9900057"
     }
 }

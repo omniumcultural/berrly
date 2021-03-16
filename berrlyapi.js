@@ -22,11 +22,15 @@ function getEventMembers(event) {
     return new Promise(function (resolve, reject) {
         utils.download(event.id_event)
         .then(function (resp){
+            if (resp.indexOf("Page Expired") > 0) {
+                reject("Seems _token is expired, log on berrly and get _token sessions getting browser navigator copy as curl.");
+            }
             var table = resp.substr(resp.indexOf("<table"), resp.indexOf("</table>") - resp.indexOf("<table") + 8);
             const converted = tabletojson.convert(table);
             var result = [];
             for (var i = 0; i < converted[0].length; i++) {
-                result.push(converted[0][i]);
+                if (converted[0][i]["Nom complet"].length > 0)
+                    result.push(converted[0][i]);
             }
             resolve(result);
         })
